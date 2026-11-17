@@ -63,6 +63,9 @@ export type {
   ShowAdErrorCode,
 } from './types';
 
+export { createRewardedInterstitialAd } from './RewardedInterstitialAd';
+export type { RewardedInterstitialAd, RewardedInterstitialAdEvents } from './RewardedInterstitialAd';
+export { useRewardedInterstitialAd, useRewardedInterstitialAdState } from './hooks/useRewardedInterstitialAd';
 export { createNativeAd } from './NativeAd';
 export type { NativeAd, NativeAdOptions, NativeAdAssets, NativeAdEvents } from './NativeAd';
 export { NativeAdView } from './NativeAdView';
