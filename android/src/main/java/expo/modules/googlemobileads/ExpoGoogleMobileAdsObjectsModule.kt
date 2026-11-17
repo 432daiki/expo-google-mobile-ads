@@ -66,6 +66,22 @@ class ExpoGoogleMobileAdsObjectsModule : Module() {
       Events("statusChange", "showed", "dismissed", "impression", "clicked", "paid")
     }
 
+    Class(AppOpenAd::class) {
+      Constructor { adUnitId: String, requestOptions: Map<String, Any?>? ->
+        AppOpenAd(appContext, adUnitId, requestOptions)
+      }
+
+      Property("status") { ad: AppOpenAd -> ad.appOpenStatus }
+      Property("error") { ad: AppOpenAd -> ad.error }
+      Property("responseInfo") { ad: AppOpenAd -> ad.responseInfo }
+
+      Function("load") { ad: AppOpenAd -> ad.load() }
+      Function("markLoadFailed") { ad: AppOpenAd, message: String -> ad.markLoadFailed(message) }
+      AsyncFunction("showAsync") { ad: AppOpenAd, promise: Promise -> ad.showAsync(promise) }
+
+      Events("statusChange", "showed", "dismissed", "impression", "clicked", "paid")
+    }
+
     Class(RewardedAd::class) {
       Constructor { adUnitId: String, requestOptions: Map<String, Any?>? ->
         RewardedAd(appContext, adUnitId, requestOptions)

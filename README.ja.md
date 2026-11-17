@@ -6,7 +6,7 @@
 
 *([English](./README.md) | 日本語)*
 
-Expo Modules ネイティブな [Google Mobile Ads (AdMob)](https://developers.google.com/admob) SDK ラッパーです。バナー・インタースティシャル・リワード広告と、UMP 同意管理に対応しています。
+Expo Modules ネイティブな [Google Mobile Ads (AdMob)](https://developers.google.com/admob) SDK ラッパーです。バナー・インタースティシャル・リワード・アプリ起動時広告と、UMP 同意管理に対応しています。
 
 📖 **[ドキュメント](https://kazutoyo.github.io/expo-google-mobile-ads/ja)** — インストール、同意管理、各広告フォーマット、API リファレンスはこちらにあります。
 
@@ -29,7 +29,7 @@ Android は [GMA Next-Gen SDK](https://developers.google.com/admob/android/next-
 - **Expo SDK 58 以降**（58.0.21 以降）、**iOS 16.4 以降**、**Android minSdk 24 以降**
 - バナー・インタースティシャル・リワード広告・UMP 同意管理
 
-未対応なのは、ネイティブ広告・アプリ起動時広告（App Open）・リワード広告のサーバーサイド検証です。
+未対応なのは、ネイティブ広告・リワードインタースティシャル広告・リワード広告のサーバーサイド検証です。
 
 ## インストール
 
@@ -89,6 +89,7 @@ plugin が何を検証しているかは[インストールガイド](https://ka
 | [インタースティシャル / リワード広告](https://kazutoyo.github.io/expo-google-mobile-ads/ja/fullscreen-ads) | 使い切りの全画面広告、報酬 |
 | [メディエーション](https://kazutoyo.github.io/expo-google-mobile-ads/ja/mediation) | config plugin 経由でのアダプタ追加 |
 | [API](https://kazutoyo.github.io/expo-google-mobile-ads/ja/api) | パッケージルートからのエクスポート一覧 |
+| [アプリ起動時広告](https://kazutoyo.github.io/expo-google-mobile-ads/ja/app-open-ads) | ロード、表示、hooks |
 
 ## 開発
 

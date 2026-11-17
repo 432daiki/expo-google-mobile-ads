@@ -62,3 +62,7 @@ export type {
   ResponseInfo,
   ShowAdErrorCode,
 } from './types';
+
+export { createAppOpenAd } from './AppOpenAd';
+export type { AppOpenAd } from './AppOpenAd';
+export { useAppOpenAd, useAppOpenAdState } from './hooks/useAppOpenAd';

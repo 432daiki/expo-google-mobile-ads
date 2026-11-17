@@ -641,3 +641,7 @@ Literal type: `'notLoaded' \| 'alreadyShown' \| 'failedToShow'`
 | `failedToShow` | The SDK itself refused to present it. `cause` carries the SDK's own error. |
 
 `notLoaded` and `alreadyShown` are decided from the ad's own `status` before anything reaches the SDK. Android's Next-Gen SDK has no readiness check at all, so deciding it here is what makes both platforms behave identically.
+
+## AppOpen ads
+
+See [app open ads](/app-open-ads) for the API and usage.
