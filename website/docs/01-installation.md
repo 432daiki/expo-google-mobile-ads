@@ -29,7 +29,7 @@ Pass your AdMob App IDs to the plugin's config in `app.json` (or `app.config.js`
 }
 ```
 
-The plugin writes these App IDs into the native projects. After changing them, the native projects have to be regenerated *and* rebuilt: run `npx expo prebuild --clean`, then `npx expo run:ios` / `npx expo run:android` or a fresh EAS build. `prebuild` on its own only rewrites the projects and installs nothing on the device, and a JavaScript reload does neither.
+The plugin writes these App IDs into the native projects. After changing them, regenerate with `npx expo prebuild`, then rebuild with `npx expo run:ios` / `npx expo run:android` or a fresh EAS build. Use `npx expo prebuild --clean` only when you intend to delete and recreate the native projects; it removes manual changes in `ios/` and `android/`. `prebuild` alone installs nothing on the device, and a JavaScript reload does not regenerate or rebuild the native projects.
 
 The plugin validates the presence and format of the App IDs at build time. If an ID is missing, or if an ad **unit** ID (slash-separated, like `ca-app-pub-xxxx/yyyy`) is passed where an App ID belongs, the build fails immediately with a message that explains why. An App ID uses the tilde-separated form: `ca-app-pub-xxxxxxxxxxxxxxxx~xxxxxxxxxx`.
 

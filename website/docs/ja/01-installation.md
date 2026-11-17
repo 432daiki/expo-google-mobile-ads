@@ -29,7 +29,7 @@ npx expo install @kazutoyo/expo-google-mobile-ads
 }
 ```
 
-plugin はこの App ID をネイティブプロジェクトに書き込みます。App ID を変更したときは、プロジェクトの再生成**と**ビルドの両方が必要です。`npx expo prebuild --clean` を実行してから、`npx expo run:ios` / `npx expo run:android` か EAS でビルドし直してください。`prebuild` はプロジェクトファイルを書き換えるだけで、端末には何もインストールしません。JavaScript のリロードでは、どちらも実行されません。
+plugin はこの App ID をネイティブプロジェクトに書き込みます。App ID を変更したときは、`npx expo prebuild` で再生成してから、`npx expo run:ios` / `npx expo run:android` か EAS でビルドし直してください。`npx expo prebuild --clean` は、ネイティブプロジェクトを削除して作り直す場合に使います。`ios/` と `android/` 内の手動変更も削除されます。`prebuild` だけでは端末に何もインストールしません。JavaScript のリロードでは、再生成もビルドも実行されません。
 
 plugin はビルド時に、App ID の有無と形式を検証します。未設定のとき、または広告**ユニット** ID（`ca-app-pub-xxxx/yyyy` とスラッシュ区切り）を App ID の場所に渡したときは、その場でビルドを止めて理由を表示します。App ID はチルダ区切りの `ca-app-pub-xxxxxxxxxxxxxxxx~xxxxxxxxxx` です。
 
