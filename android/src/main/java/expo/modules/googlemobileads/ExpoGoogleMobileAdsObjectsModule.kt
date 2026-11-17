@@ -85,6 +85,23 @@ class ExpoGoogleMobileAdsObjectsModule : Module() {
       Events("statusChange", "showed", "dismissed", "impression", "clicked", "paid", "earnedReward")
     }
 
+    Class(RewardedInterstitialAd::class) {
+      Constructor { adUnitId: String, requestOptions: Map<String, Any?>? ->
+        RewardedInterstitialAd(appContext, adUnitId, requestOptions)
+      }
+
+      Property("status") { ad: RewardedInterstitialAd -> ad.status }
+      Property("error") { ad: RewardedInterstitialAd -> ad.error }
+      Property("responseInfo") { ad: RewardedInterstitialAd -> ad.responseInfo }
+      Property("reward") { ad: RewardedInterstitialAd -> ad.reward }
+
+      Function("load") { ad: RewardedInterstitialAd -> ad.load() }
+      Function("markLoadFailed") { ad: RewardedInterstitialAd, message: String -> ad.markLoadFailed(message) }
+      AsyncFunction("showAsync") { ad: RewardedInterstitialAd, promise: Promise -> ad.showAsync(promise) }
+
+      Events("statusChange", "showed", "dismissed", "impression", "clicked", "paid", "earnedReward")
+    }
+
     View(BannerAdView::class) {
       Prop("ad") { view: BannerAdView, ad: BannerAd? ->
         view.setAd(ad)

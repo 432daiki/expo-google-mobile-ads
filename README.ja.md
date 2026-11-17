@@ -6,7 +6,7 @@
 
 *([English](./README.md) | 日本語)*
 
-Expo Modules ネイティブな [Google Mobile Ads (AdMob)](https://developers.google.com/admob) SDK ラッパーです。バナー・インタースティシャル・リワード広告と、UMP 同意管理に対応しています。
+Expo Modules ネイティブな [Google Mobile Ads (AdMob)](https://developers.google.com/admob) SDK ラッパーです。バナー・インタースティシャル・リワード・リワードインタースティシャル広告と、UMP 同意管理に対応しています。
 
 📖 **[ドキュメント](https://kazutoyo.github.io/expo-google-mobile-ads/ja)** — インストール、同意管理、各広告フォーマット、API リファレンスはこちらにあります。
 
@@ -89,6 +89,7 @@ plugin が何を検証しているかは[インストールガイド](https://ka
 | [インタースティシャル / リワード広告](https://kazutoyo.github.io/expo-google-mobile-ads/ja/fullscreen-ads) | 使い切りの全画面広告、報酬 |
 | [メディエーション](https://kazutoyo.github.io/expo-google-mobile-ads/ja/mediation) | config plugin 経由でのアダプタ追加 |
 | [API](https://kazutoyo.github.io/expo-google-mobile-ads/ja/api) | パッケージルートからのエクスポート一覧 |
+| [リワードインタースティシャル広告](https://kazutoyo.github.io/expo-google-mobile-ads/ja/rewarded-interstitial-ads) | ロード、表示、hooks |
 
 ## 開発
 

@@ -353,3 +353,12 @@ D and E above.
 For each item, record which platform it was run on, the actual result, and (if relevant) the
 matching `adb logcat` / Xcode console line that evidences it. Paste the line into this file —
 don't reference a scratch file outside the repository, which nobody cloning it can read.
+
+## Rewarded interstitial ads
+
+- [ ] Load with the platform test ID and confirm success and error state.
+- [ ] Release during loading; no late result or crash.
+- [ ] Retry a failed request and replace a loaded ad.
+- [ ] Show, dismiss, then attempt to show again; the second call is rejected.
+- [ ] Release during presentation; the pending promise rejects.
+- [ ] Show a reward explanation and skip option first. Complete vs. dismiss early; grant only the earned reward, once.

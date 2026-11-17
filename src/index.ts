@@ -62,3 +62,7 @@ export type {
   ResponseInfo,
   ShowAdErrorCode,
 } from './types';
+
+export { createRewardedInterstitialAd } from './RewardedInterstitialAd';
+export type { RewardedInterstitialAd, RewardedInterstitialAdEvents } from './RewardedInterstitialAd';
+export { useRewardedInterstitialAd, useRewardedInterstitialAdState } from './hooks/useRewardedInterstitialAd';

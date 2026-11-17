@@ -85,6 +85,25 @@ public final class ExpoGoogleMobileAdsObjectsModule: Module {
       }
     }
 
+    Class("RewardedInterstitialAd", FullScreenRewardedInterstitialAd.self) {
+      Constructor { (adUnitId: String, requestOptions: [String: Any?]?) -> FullScreenRewardedInterstitialAd in
+        FullScreenRewardedInterstitialAd(adUnitId: adUnitId, requestOptions: requestOptions)
+      }
+
+      Property("status") { (ad: FullScreenRewardedInterstitialAd) in ad.status }
+      Property("error") { (ad: FullScreenRewardedInterstitialAd) in ad.error }
+      Property("responseInfo") { (ad: FullScreenRewardedInterstitialAd) in ad.responseInfo }
+      Property("reward") { (ad: FullScreenRewardedInterstitialAd) in ad.reward }
+
+      Function("load") { (ad: FullScreenRewardedInterstitialAd) in ad.load() }
+      Function("markLoadFailed") { (ad: FullScreenRewardedInterstitialAd, message: String) in
+        ad.markLoadFailed(message)
+      }
+      AsyncFunction("showAsync") { (ad: FullScreenRewardedInterstitialAd, promise: Promise) in
+        ad.showAsync(promise)
+      }
+    }
+
     View(BannerAdView.self) {
       Prop("ad") { (view: BannerAdView, ad: BannerAd?) in
         view.setAd(ad)
