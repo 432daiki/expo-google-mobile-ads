@@ -76,3 +76,15 @@ export {
   useSwipeableInterstitialAdState,
 } from './hooks/useSwipeableInterstitialAd';
 export type { SwipeableInterstitialAdState } from './hooks/useSwipeableInterstitialAd';
+export { createRewardedInterstitialAd } from './RewardedInterstitialAd';
+export type { RewardedInterstitialAd, RewardedInterstitialAdEvents } from './RewardedInterstitialAd';
+export { useRewardedInterstitialAd, useRewardedInterstitialAdState } from './hooks/useRewardedInterstitialAd';
+export { createNativeAd } from './NativeAd';
+export type { NativeAd, NativeAdOptions, NativeAdAssets, NativeAdEvents } from './NativeAd';
+export { NativeAdView } from './NativeAdView';
+export type { NativeAdViewProps } from './NativeAdView';
+export { useNativeAd, useNativeAdState } from './hooks/useNativeAd';
+export type { NativeAdState } from './hooks/useNativeAd';
+export { createAppOpenAd } from './AppOpenAd';
+export type { AppOpenAd } from './AppOpenAd';
+export { useAppOpenAd, useAppOpenAdState } from './hooks/useAppOpenAd';
