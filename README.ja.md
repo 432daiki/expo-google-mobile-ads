@@ -90,7 +90,6 @@ plugin が何を検証しているかは[インストールガイド](https://ka
 | [メディエーション](https://kazutoyo.github.io/expo-google-mobile-ads/ja/mediation) | config plugin 経由でのアダプタ追加 |
 | [API](https://kazutoyo.github.io/expo-google-mobile-ads/ja/api) | パッケージルートからのエクスポート一覧 |
 | [ネイティブ広告](https://kazutoyo.github.io/expo-google-mobile-ads/ja/native-ads) | ロード、表示、hooks |
-
 | [アプリ起動時広告](https://kazutoyo.github.io/expo-google-mobile-ads/ja/app-open-ads) | ロード、表示、hooks |
 
 ## 開発

@@ -90,7 +90,6 @@ See the [installation guide](https://kazutoyo.github.io/expo-google-mobile-ads/i
 | [Mediation](https://kazutoyo.github.io/expo-google-mobile-ads/mediation) | Adding adapters through the config plugin |
 | [API](https://kazutoyo.github.io/expo-google-mobile-ads/api) | Everything exported from the package root |
 | [Native ads](https://kazutoyo.github.io/expo-google-mobile-ads/native-ads) | Loading, presentation, hooks |
-
 | [App open ads](https://kazutoyo.github.io/expo-google-mobile-ads/app-open-ads) | Loading, presentation, hooks |
 
 ## Contributing
