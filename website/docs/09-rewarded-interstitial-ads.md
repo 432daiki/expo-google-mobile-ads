@@ -7,6 +7,7 @@ title: Rewarded interstitial ads
 Gather consent and call `initialize()` before loading ads.
 
 ```tsx
+import { useEventListener } from 'expo';
 import { Platform } from 'react-native';
 import { useRewardedInterstitialAd } from '@kazutoyo/expo-google-mobile-ads';
 
@@ -16,16 +17,21 @@ const adUnitId = Platform.select({
 })!;
 
 const { ad, isLoaded, error } = useRewardedInterstitialAd({ adUnitId });
-// Call from your app's chosen placement, only when ready.
+// Subscribe before showing; grant only from this event, including late mediated callbacks.
+useEventListener(ad, 'earnedReward', (reward) => grantReward(reward));
+// Call from your introduction screen's continue action, only when ready.
 if (isLoaded) {
-  const reward = await ad.show();
-  if (reward) grantReward(reward);
+  await ad.show(); // Dismissal; do not grant a second reward from the returned value.
 }
 ```
 
 Before showing, your app must display an introduction that explains the reward and lets the user skip the ad. Call `show()` only after that screen. The library does not provide the introduction UI.
 
-`ad.reward` describes the offered reward before presentation. It is not evidence that the reward was earned. `show()` resolves on dismissal with the earned `{ type, amount }`, or `null` when dismissed without earning. Grant the reward using either the resolved result or the `earnedReward` event, never both. The ad is single-use; create a new one after presentation. Server-side verification (SSV) is not yet exposed.
+`ad.reward` describes the offered reward, not an earned reward. Grant rewards only from the `earnedReward` event subscribed before presentation. Do not also grant from `show()`'s returned value.
+
+`show()` resolves on dismissal with the reward received by that point, or `null`. An iOS mediated SDK may deliver its reward callback after dismissal; `null` is therefore not a final no-reward verdict for mediation. Keep the ad and reward subscription alive for the adapter's callback, rather than releasing them just because `show()` resolved. Validate callback ordering with the adapters you use. See [Google's iOS rewarded FAQ](https://developers.google.com/admob/ios/rewarded#faq) for the underlying ordering caveat.
+
+Ads are single-use. Server-side verification (SSV) is not yet exposed.
 
 ## API
 

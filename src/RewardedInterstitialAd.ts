@@ -18,7 +18,7 @@ export declare class NativeRewardedInterstitialAd extends SharedObject<RewardedI
   readonly status: FullScreenAdStatus;
   readonly error?: AdError;
   readonly responseInfo?: ResponseInfo;
-  /** Offered reward. Grant only the earned reward returned by show() or earnedReward. */
+  /** Offered reward, not evidence of earning. Use earnedReward for mediation reward grants. */
   readonly reward?: AdReward;
   load(): void;
   markLoadFailed(message: string): void;
@@ -26,6 +26,11 @@ export declare class NativeRewardedInterstitialAd extends SharedObject<RewardedI
 }
 
 export type RewardedInterstitialAd = NativeRewardedInterstitialAd & {
+  /**
+   * Resolves on dismissal with the reward received by that point, or null.
+   * A mediated iOS SDK may deliver earnedReward after dismissal. Use that event as the
+   * sole grant path when mediating, and keep the ad/subscription alive for its callback.
+   */
   show(): Promise<AdReward | null>;
 };
 

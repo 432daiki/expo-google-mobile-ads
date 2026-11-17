@@ -36,7 +36,7 @@ describe('RewardedInterstitialAd.show', () => {
     await expect(ad.show()).resolves.toEqual({ type: 'coins', amount: 10 });
   });
 
-  it('resolves with null when the ad was dismissed without earning a reward', async () => {
+  it('resolves with null when no reward callback has arrived by dismissal', async () => {
     const ad = createRewardedInterstitialAd({ adUnitId: 'unit' });
     (ad as any).status = 'loaded';
     (ad as any).showAsync = jest.fn().mockResolvedValue(null);
@@ -57,4 +57,29 @@ describe('RewardedInterstitialAd.show', () => {
     (ad as any).showAsync = jest.fn().mockRejectedValue(nativeError);
     await expect(ad.show()).rejects.toMatchObject({ cause: nativeError });
   });
+});
+
+it('keeps a late earnedReward subscription usable after show resolves null', async () => {
+  const listeners = new Set<(reward: unknown) => void>();
+  mockRewardedInterstitialAd.mockImplementationOnce(function (this: any) {
+    this.status = 'loaded';
+    this.load = jest.fn();
+    this.markLoadFailed = jest.fn();
+    this.showAsync = jest.fn().mockResolvedValue(null);
+    this.addListener = jest.fn((_event, listener) => {
+      listeners.add(listener);
+      return { remove: () => listeners.delete(listener) };
+    });
+  });
+  const ad = createRewardedInterstitialAd({ adUnitId: 'mediated-unit' });
+  const grantReward = jest.fn();
+  const subscription = ad.addListener('earnedReward', grantReward);
+  await expect(ad.show()).resolves.toBeNull();
+  expect(grantReward).not.toHaveBeenCalled();
+  const reward = { type: 'coins', amount: 10 };
+  for (const listener of listeners) listener(reward);
+  expect(grantReward).toHaveBeenCalledTimes(1);
+  expect(grantReward).toHaveBeenCalledWith(reward);
+  subscription.remove();
+  expect(listeners.size).toBe(0);
 });

@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Use earnedReward as the sample grant path, document late mediation callbacks, and label no-reward dismissal explicitly.
+
 - Add rewarded interstitial ads on iOS and Android, with preloading, React hooks, examples and documentation.
 
 
