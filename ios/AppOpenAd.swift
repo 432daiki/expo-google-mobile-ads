@@ -5,17 +5,15 @@ import UIKit
 final class FullScreenAppOpenAd: FullScreenAd {
   private var expiryTask: DispatchWorkItem?
   private var ad: AppOpenAd?
-  private let expiryLock = NSLock()
-  private var loadedAt: TimeInterval?
+  private let expiry = AppOpenAdExpiry()
+  private var foregroundObserver: NSObjectProtocol?
   var appOpenStatus: String {
     let current = status
-    expiryLock.lock()
-    let timestamp = loadedAt
-    expiryLock.unlock()
-    if current == "loaded", let timestamp, ProcessInfo.processInfo.systemUptime - timestamp >= 4 * 60 * 60 {
-      return "error"
-    }
-    return current
+    return current == "loaded" && expiry.isExpired ? "error" : current
+  }
+
+  private func revalidateExpiration(loadId: Int) {
+    if expiry.isExpired { expireLoadedAd(loadId: loadId) }
   }
 
   override func loadAd(request: Request, loadId: Int) {
@@ -44,13 +42,17 @@ final class FullScreenAppOpenAd: FullScreenAd {
       self?.emitPaid(value)
     }
     self.ad = ad
-    expiryLock.lock()
-    loadedAt = ProcessInfo.processInfo.systemUptime
-    expiryLock.unlock()
+    expiry.markLoaded()
     handleLoaded(responseInfo: ad.responseInfo)
-    let expiry = DispatchWorkItem { [weak self] in self?.expireLoadedAd(loadId: loadId) }
-    expiryTask = expiry
-    DispatchQueue.main.asyncAfter(deadline: .now() + 4 * 60 * 60, execute: expiry)
+    let task = DispatchWorkItem { [weak self] in self?.revalidateExpiration(loadId: loadId) }
+    expiryTask = task
+    // Foreground revalidation covers suspension and deep sleep even if this timer is delayed.
+    DispatchQueue.main.asyncAfter(deadline: .now() + 4 * 60 * 60, execute: task)
+    foregroundObserver = NotificationCenter.default.addObserver(
+      forName: UIApplication.didBecomeActiveNotification, object: nil, queue: .main
+    ) { [weak self] _ in
+      self?.revalidateExpiration(loadId: loadId)
+    }
   }
 
   @MainActor
@@ -63,6 +65,9 @@ final class FullScreenAppOpenAd: FullScreenAd {
   override func tearDownAd() {
     expiryTask?.cancel()
     expiryTask = nil
+    expiry.clear()
+    if let foregroundObserver { NotificationCenter.default.removeObserver(foregroundObserver) }
+    foregroundObserver = nil
     ad?.fullScreenContentDelegate = nil
     ad?.paidEventHandler = nil
     ad = nil

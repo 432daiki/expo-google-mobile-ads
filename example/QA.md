@@ -362,3 +362,11 @@ don't reference a scratch file outside the repository, which nobody cloning it c
 - [ ] Show, dismiss, then attempt to show again; the second call is rejected.
 - [ ] Release during presentation; the pending promise rejects.
 - [ ] Wait four hours after loading; show rejects and a fresh ad can load.
+
+### App open expiry regressions
+
+- `npm run test:native:ios` runs the actual Swift expiry helper with an injected continuous clock; no device or four-hour wait is needed.
+- In a prebuilt Android example, `./gradlew :kazutoyo-expo-google-mobile-ads:testDebugUnitTest` exercises the actual Kotlin expiry helper with an injected elapsed-realtime clock.
+- [ ] Load an ad, leave the process alive through device sleep lasting over four hours, then foreground the app. Confirm `isLoaded=false` and the expiry error arrives through statusChange on both OSes.
+- [ ] Return to foreground before four hours; the ad remains loaded.
+- [ ] Show while a foreground or timer revalidation is pending; the presentation callbacks and show promise remain intact.

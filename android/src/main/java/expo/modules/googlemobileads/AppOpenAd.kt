@@ -20,10 +20,11 @@ class AppOpenAd(
   private var expiryTask: Runnable? = null
   @Volatile
   private var ad: GmaAppOpenAd? = null
-  @Volatile private var loadedAt = 0L
+  private val expiry = AppOpenAdExpiry { android.os.SystemClock.elapsedRealtime() }
+  private var loadedId: Long? = null
   val appOpenStatus: String get() {
     val current = status
-    return if (current == "loaded" && android.os.SystemClock.elapsedRealtime() - loadedAt >= 4 * 60 * 60 * 1000L) "error" else current
+    return if (current == "loaded" && expiry.isExpired) "error" else current
   }
 
   override fun loadAd(request: AdRequest, loadId: Long) {
@@ -63,12 +64,21 @@ class AppOpenAd(
 
     }
     ad = loaded
-    loadedAt = android.os.SystemClock.elapsedRealtime()
+    expiry.markLoaded()
+    loadedId = loadId
     handleLoaded(loaded.getResponseInfo())
     val owner = java.lang.ref.WeakReference(this)
-    val expiry = Runnable { owner.get()?.expireLoadedAd(loadId) }
+    val expiry = Runnable { owner.get()?.revalidateExpiration() }
     expiryTask = expiry
     expiryHandler.postDelayed(expiry, 4 * 60 * 60 * 1000L)
+  }
+
+  /** Called by the module on Activity resume, including return from device deep sleep. */
+  fun revalidateExpiration() {
+    postToMain {
+      val loadId = loadedId ?: return@postToMain
+      if (expiry.isExpired) expireLoadedAd(loadId)
+    }
   }
 
   override fun presentAd(activity: Activity): Boolean {
@@ -81,6 +91,8 @@ class AppOpenAd(
   override fun tearDownAd() {
     expiryTask?.let { expiryHandler.removeCallbacks(it) }
     expiryTask = null
+    expiry.clear()
+    loadedId = null
     ad?.let {
       it.adEventCallback = null
       it.destroy()

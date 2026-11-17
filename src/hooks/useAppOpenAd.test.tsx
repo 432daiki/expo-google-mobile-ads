@@ -166,3 +166,21 @@ describe('useAppOpenAd', () => {
     expect(typeof result.current.ad.show).toBe('function');
   });
 });
+
+it('updates readiness and the expiry error when native resume revalidation emits statusChange', async () => {
+  const ad = makeAd('loaded');
+  const { result } = await renderHook(() => useAppOpenAdState(ad));
+  expect(result.current.isLoaded).toBe(true);
+  const error = {
+    code: -1,
+    message: 'The app open ad expired. Load a fresh ad.',
+    domain: 'ExpoGoogleMobileAds',
+  };
+  await act(() => {
+    ad.status = 'error';
+    ad.error = error;
+    ad.emitStatusChange();
+  });
+  expect(result.current).toEqual({ isLoaded: false, error });
+  expect(ad.load).not.toHaveBeenCalled();
+});

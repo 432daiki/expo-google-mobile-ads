@@ -25,7 +25,7 @@ if (isLoaded) {
 
 Call `show()` from your loading screen or foreground flow after checking readiness. The library does not automatically subscribe to AppState or present ads on launch. Skip the placement if loading has not finished; do not interrupt content later when a request completes.
 
-An app open ad expires four hours after load. Both platforms reject expired ads (`ShowAdError` with `code: 'notLoaded'` when checked by JS); `ad.status` reads `error`. An expiry timer emits a status change so hooks stop reporting the ad as loaded. Native status reads and presentation also check elapsed time, including after the app has been suspended. Always handle `show()` rejection. Replace or reload an unused expired ad. Ads are single-use after presentation; create a new ad for the next placement.
+An app open ad expires four hours after load. Both platforms reject expired ads (`ShowAdError` with `code: 'notLoaded'` when checked by JS); `ad.status` reads `error`. An expiry timer emits a status change so hooks stop reporting the ad as loaded. Age is measured by a sleep-inclusive monotonic clock (ContinuousClock on iOS and elapsedRealtime on Android). Foreground/resume revalidation updates native state and emits statusChange even when a device sleep delayed the timer. Status reads and presentation also check expiry. Always handle `show()` rejection. Replace or reload an unused expired ad. Ads are single-use after presentation; create a new ad for the next placement.
 
 ## API
 
