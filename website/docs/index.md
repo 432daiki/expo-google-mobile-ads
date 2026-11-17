@@ -11,12 +11,14 @@ npx expo install @kazutoyo/expo-google-mobile-ads
 
 ## What it does
 
+- **Native ads** — preloading, native lifecycle management and React hooks.
+
 - **Banner ads** — fixed and adaptive sizes. An ad is created independently of the view that displays it, so loading can start before the screen exists.
 - **Interstitial and rewarded ads** — preloadable in the same way. `show()` returns a promise, and a rewarded ad resolves with the reward the user earned.
 - **UMP consent** — gathering consent, showing the form, and reopening the privacy options.
 - **Config plugin** — writes your App IDs into the native projects, and adds mediation adapter dependencies.
 
-Not supported: native ads, app-open ads, and server-side verification for rewarded ads.
+Not supported: app-open ads, and server-side verification for rewarded ads.
 
 ## Requirements
 
@@ -31,3 +33,5 @@ The module contains native code, so **it does not run in Expo Go**. You need a d
 Start with [Installation](/installation), where the config plugin takes your App IDs.
 
 From there: gather consent in [Consent (UMP)](/consent), call `initialize()` as described in [Initializing the SDK](/initialization), and then load [banner](/banner-ads) or [interstitial and rewarded](/fullscreen-ads) ads.
+
+- [Native ads](/native-ads)

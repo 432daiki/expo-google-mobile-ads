@@ -85,6 +85,22 @@ public final class ExpoGoogleMobileAdsObjectsModule: Module {
       }
     }
 
+    Class("NativeAd", NativeAdObject.self) {
+      Constructor { (adUnitId: String, requestOptions: [String: Any?]?) in
+        NativeAdObject(adUnitId: adUnitId, requestOptions: requestOptions)
+      }
+      Property("status") { (ad: NativeAdObject) in ad.value("status") as? String ?? "loading" }
+      Property("error") { (ad: NativeAdObject) in ad.value("error") as? [String: Any?] }
+      Property("responseInfo") { (ad: NativeAdObject) in ad.value("responseInfo") as? [String: Any?] }
+      Property("assets") { (ad: NativeAdObject) in ad.value("assets") as? [String: Any?] }
+      Function("load") { (ad: NativeAdObject) in ad.load() }
+      Function("markLoadFailed") { (ad: NativeAdObject, message: String) in ad.markLoadFailed(message) }
+    }
+    View(NativeAdCardView.self) {
+      ViewName("NativeAdView")
+      Prop("ad") { (view: NativeAdCardView, ad: NativeAdObject?) in view.setAd(ad) }
+    }
+
     View(BannerAdView.self) {
       Prop("ad") { (view: BannerAdView, ad: BannerAd?) in
         view.setAd(ad)
