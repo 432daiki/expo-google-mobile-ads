@@ -69,3 +69,6 @@ export { NativeAdView } from './NativeAdView';
 export type { NativeAdViewProps } from './NativeAdView';
 export { useNativeAd, useNativeAdState } from './hooks/useNativeAd';
 export type { NativeAdState } from './hooks/useNativeAd';
+export { createAppOpenAd } from './AppOpenAd';
+export type { AppOpenAd } from './AppOpenAd';
+export { useAppOpenAd, useAppOpenAdState } from './hooks/useAppOpenAd';

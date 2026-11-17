@@ -645,3 +645,7 @@ Literal type: `'notLoaded' \| 'alreadyShown' \| 'failedToShow'`
 ## Native ads
 
 See [native ads](/native-ads) for the API and usage.
+
+## AppOpen ads
+
+See [app open ads](/app-open-ads) for the API and usage.
