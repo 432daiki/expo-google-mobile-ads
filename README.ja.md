@@ -87,6 +87,7 @@ plugin が何を検証しているかは[インストールガイド](https://ka
 | [バナー広告](https://kazutoyo.github.io/expo-google-mobile-ads/ja/banner-ads) | プリロード、hooks、自動リフレッシュ |
 | [バナーサイズの選び方](https://kazutoyo.github.io/expo-google-mobile-ads/ja/banner-sizes) | 固定サイズとアダプティブサイズ |
 | [インタースティシャル / リワード広告](https://kazutoyo.github.io/expo-google-mobile-ads/ja/fullscreen-ads) | 使い切りの全画面広告、報酬 |
+| [Swipeable Interstitial](https://kazutoyo.github.io/expo-google-mobile-ads/ja/swipeable-interstitial-ads) | View への配置、hooks、表示保持時間、イベント |
 | [メディエーション](https://kazutoyo.github.io/expo-google-mobile-ads/ja/mediation) | config plugin 経由でのアダプタ追加 |
 | [API](https://kazutoyo.github.io/expo-google-mobile-ads/ja/api) | パッケージルートからのエクスポート一覧 |
 

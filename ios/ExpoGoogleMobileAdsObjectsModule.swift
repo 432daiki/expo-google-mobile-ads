@@ -85,6 +85,28 @@ public final class ExpoGoogleMobileAdsObjectsModule: Module {
       }
     }
 
+    Class("SwipeableInterstitialAd", EmbeddedSwipeableInterstitialAd.self) {
+      Constructor { (adUnitId: String, size: [String: Double]?, maxScreenHoldDuration: Double,
+                     requestOptions: [String: Any?]?) -> EmbeddedSwipeableInterstitialAd in
+        EmbeddedSwipeableInterstitialAd(adUnitId: adUnitId, size: size,
+          maxScreenHoldDuration: maxScreenHoldDuration, requestOptions: requestOptions)
+      }
+      Property("status") { (ad: EmbeddedSwipeableInterstitialAd) in ad.status }
+      Property("error") { (ad: EmbeddedSwipeableInterstitialAd) in ad.error }
+      Property("responseInfo") { (ad: EmbeddedSwipeableInterstitialAd) in ad.responseInfo }
+      Property("minScreenHoldDuration") { (ad: EmbeddedSwipeableInterstitialAd) in ad.minScreenHoldDuration }
+      Function("load") { (ad: EmbeddedSwipeableInterstitialAd) in ad.load() }
+      Function("markLoadFailed") { (ad: EmbeddedSwipeableInterstitialAd, message: String) in
+        ad.markLoadFailed(message)
+      }
+    }
+
+    View(SwipeableInterstitialAdView.self) {
+      Prop("ad") { (view: SwipeableInterstitialAdView, ad: EmbeddedSwipeableInterstitialAd?) in
+        view.setAd(ad)
+      }
+    }
+
     View(BannerAdView.self) {
       Prop("ad") { (view: BannerAdView, ad: BannerAd?) in
         view.setAd(ad)

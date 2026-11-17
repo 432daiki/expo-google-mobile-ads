@@ -3,7 +3,7 @@ import { defineConfig } from 'blume';
 export default defineConfig({
   title: '@kazutoyo/expo-google-mobile-ads',
   description:
-    'An Expo Modules native wrapper for the Google Mobile Ads (AdMob) SDK — banner, interstitial and rewarded ads, and UMP consent.',
+    'An Expo Modules native wrapper for the Google Mobile Ads (AdMob) SDK — banner, interstitial, swipeable interstitial and rewarded ads, and UMP consent.',
 
   github: {
     owner: 'kazutoyo',

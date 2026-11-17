@@ -641,3 +641,13 @@ Literal type: `'notLoaded' \| 'alreadyShown' \| 'failedToShow'`
 | `failedToShow` | The SDK itself refused to present it. `cause` carries the SDK's own error. |
 
 `notLoaded` and `alreadyShown` are decided from the ad's own `status` before anything reaches the SDK. Android's Next-Gen SDK has no readiness check at all, so deciding it here is what makes both platforms behave identically.
+
+## Swipeable Interstitial
+
+See the [guide](/swipeable-interstitial-ads) for options, state, ownership and events.
+
+- `createSwipeableInterstitialAd(options: SwipeableInterstitialAdOptions): SwipeableInterstitialAd`
+- `useSwipeableInterstitialAd(options): SwipeableInterstitialAdState & { ad: SwipeableInterstitialAd }`
+- `useSwipeableInterstitialAdState(ad): SwipeableInterstitialAdState`
+- `SwipeableInterstitialAdView({ ad, style }: SwipeableInterstitialAdViewProps)`
+- Types: `SwipeableInterstitialAdOptions`, `SwipeableInterstitialAdEvents`, `SwipeableInterstitialAdState`, `SwipeableInterstitialAdViewProps`, `SwipeableInterstitialAd`.

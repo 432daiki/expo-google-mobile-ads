@@ -62,3 +62,17 @@ export type {
   ResponseInfo,
   ShowAdErrorCode,
 } from './types';
+
+export { createSwipeableInterstitialAd } from './SwipeableInterstitialAd';
+export type {
+  SwipeableInterstitialAd,
+  SwipeableInterstitialAdOptions,
+  SwipeableInterstitialAdEvents,
+} from './SwipeableInterstitialAd';
+export { SwipeableInterstitialAdView } from './SwipeableInterstitialAdView';
+export type { SwipeableInterstitialAdViewProps } from './SwipeableInterstitialAdView';
+export {
+  useSwipeableInterstitialAd,
+  useSwipeableInterstitialAdState,
+} from './hooks/useSwipeableInterstitialAd';
+export type { SwipeableInterstitialAdState } from './hooks/useSwipeableInterstitialAd';
