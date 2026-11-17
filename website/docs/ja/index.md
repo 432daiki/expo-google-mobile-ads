@@ -16,7 +16,7 @@ npx expo install @kazutoyo/expo-google-mobile-ads
 - **UMP 同意管理** — 同意の取得、フォームの表示、プライバシーオプションの再表示
 - **config plugin** — App ID をネイティブプロジェクトに埋め込み、メディエーションアダプタの依存も追加できます
 
-未対応なのは、ネイティブ広告・アプリ起動時広告（App Open）・リワード広告のサーバーサイド検証です。
+未対応なのは、リワード広告のサーバーサイド検証です。
 
 ## 動作要件
 
@@ -33,3 +33,7 @@ npx expo install @kazutoyo/expo-google-mobile-ads
 そのあとは、[同意管理 (UMP)](/ja/consent) で同意を取り、[SDK の初期化](/ja/initialization) を済ませてから、[バナー広告](/ja/banner-ads) や [インタースティシャル / リワード広告](/ja/fullscreen-ads) をロードする、という流れになります。
 
 - [リワードインタースティシャル広告](/ja/rewarded-interstitial-ads)
+
+- [ネイティブ広告](/ja/native-ads)
+
+- [アプリ起動時広告](/ja/app-open-ads)

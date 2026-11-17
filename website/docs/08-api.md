@@ -645,3 +645,11 @@ Literal type: `'notLoaded' \| 'alreadyShown' \| 'failedToShow'`
 ## RewardedInterstitial ads
 
 See [rewarded interstitial ads](/rewarded-interstitial-ads) for the API and usage.
+
+## Native ads
+
+See [native ads](/native-ads) for the API and usage.
+
+## AppOpen ads
+
+See [app open ads](/app-open-ads) for the API and usage.

@@ -645,3 +645,11 @@ Android の UMP には `misconfiguration` や `formUnavailable` に相当する�
 ## RewardedInterstitial ads
 
 See [リワードインタースティシャル ads](/ja/rewarded-interstitial-ads) for the API and usage.
+
+## Native ads
+
+See [ネイティブ ads](/ja/native-ads) for the API and usage.
+
+## AppOpen ads
+
+See [アプリ起動時 ads](/ja/app-open-ads) for the API and usage.
