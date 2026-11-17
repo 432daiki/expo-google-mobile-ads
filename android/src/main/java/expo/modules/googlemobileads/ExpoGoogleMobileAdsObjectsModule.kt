@@ -111,6 +111,25 @@ class ExpoGoogleMobileAdsObjectsModule : Module() {
       Events("statusChange", "showed", "dismissed", "impression", "clicked", "paid", "earnedReward")
     }
 
+    Class(SwipeableInterstitialAd::class) {
+      Constructor { adUnitId: String, size: Map<String, Double>?, maxScreenHoldDuration: Int,
+                    requestOptions: Map<String, Any?>? ->
+        SwipeableInterstitialAd(appContext, adUnitId, size, maxScreenHoldDuration, requestOptions)
+      }
+      Property("status") { ad: SwipeableInterstitialAd -> ad.status }
+      Property("error") { ad: SwipeableInterstitialAd -> ad.error }
+      Property("responseInfo") { ad: SwipeableInterstitialAd -> ad.responseInfo }
+      Property("minScreenHoldDuration") { ad: SwipeableInterstitialAd -> ad.minScreenHoldDuration }
+      Function("load") { ad: SwipeableInterstitialAd -> ad.load() }
+      Function("markLoadFailed") { ad: SwipeableInterstitialAd, message: String -> ad.markLoadFailed(message) }
+      Events("statusChange", "impression", "clicked", "paid", "screenPresented", "screenDismissed", "screenHoldTimerStarted")
+    }
+
+    View(SwipeableInterstitialAdView::class) {
+      Prop("ad") { view: SwipeableInterstitialAdView, ad: SwipeableInterstitialAd? -> view.setAd(ad) }
+      OnViewDestroys { view: SwipeableInterstitialAdView -> view.onDestroy() }
+    }
+
     Class(RewardedInterstitialAd::class) {
       Constructor { adUnitId: String, requestOptions: Map<String, Any?>? ->
         RewardedInterstitialAd(appContext, adUnitId, requestOptions)

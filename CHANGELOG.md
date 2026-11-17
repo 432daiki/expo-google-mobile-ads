@@ -20,6 +20,12 @@ this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 
 ## [Unreleased]
 
+### Added
+
+- Swipeable interstitial ads on iOS and Android: `createSwipeableInterstitialAd`,
+  `SwipeableInterstitialAdView`, and the owning/state hooks, with screen hold duration
+  and ad lifecycle events. The app controls placement, gestures and dismissal.
+
 ## [0.2.0] - 2026-11-11
 
 ### Changed

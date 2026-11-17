@@ -644,6 +644,16 @@ Android の UMP には `misconfiguration` や `formUnavailable` に相当する�
 
 `notLoaded` と `alreadyShown` は、SDK に到達する前に広告自身の `status` から判定しています。Android の Next-Gen SDK には準備状態を問い合わせる API がないため、こちら側で判定することが、両プラットフォームの挙動を揃える唯一の方法です。
 
+## Swipeable Interstitial
+
+専用の [ガイド](/ja/swipeable-interstitial-ads)に型・オプション・状態・イベントを記載しています。
+
+- `createSwipeableInterstitialAd(options: SwipeableInterstitialAdOptions): SwipeableInterstitialAd`
+- `useSwipeableInterstitialAd(options): SwipeableInterstitialAdState & { ad: SwipeableInterstitialAd }`
+- `useSwipeableInterstitialAdState(ad): SwipeableInterstitialAdState`
+- `SwipeableInterstitialAdView({ ad, style }: SwipeableInterstitialAdViewProps)`
+- Types: `SwipeableInterstitialAdOptions`, `SwipeableInterstitialAdEvents`, `SwipeableInterstitialAdState`, `SwipeableInterstitialAdViewProps`, `SwipeableInterstitialAd`.
+
 ## リワードインタースティシャル広告
 
 API と使い方は [リワードインタースティシャル広告](/ja/rewarded-interstitial-ads) を参照してください。

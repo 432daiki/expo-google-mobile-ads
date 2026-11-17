@@ -6,7 +6,7 @@
 
 *([English](./README.md) | 日本語)*
 
-[Google Mobile Ads (AdMob)](https://developers.google.com/admob) SDK を Expo Modules でラップしたライブラリです。バナー・インタースティシャル・リワード・リワードインタースティシャル・ネイティブ・アプリ起動時広告と、UMP 同意管理に対応しています。
+[Google Mobile Ads (AdMob)](https://developers.google.com/admob) SDK を Expo Modules でラップしたライブラリです。バナー・インタースティシャル・Swipeable Interstitial・リワード・リワードインタースティシャル・ネイティブ・アプリ起動時広告と、UMP 同意管理に対応しています。
 
 📖 **[ドキュメント](https://kazutoyo.github.io/expo-google-mobile-ads/ja)** — インストール、同意管理、各広告フォーマット、API リファレンス。
 
@@ -27,7 +27,7 @@ Android は [GMA Next-Gen SDK](https://developers.google.com/admob/android/next-
 
 - **New Architecture 専用**です。Old Architecture では動きません
 - **Expo SDK 58 以降**（58.0.21 以降）、**iOS 16.4 以降**、**Android minSdk 24 以降**
-- バナー・インタースティシャル・リワード・リワードインタースティシャル・ネイティブ・アプリ起動時広告・UMP 同意管理
+- バナー・インタースティシャル・Swipeable Interstitial・リワード・リワードインタースティシャル・ネイティブ・アプリ起動時広告・UMP 同意管理
 
 リワード広告のサーバーサイド検証には対応していません。
 
@@ -87,6 +87,7 @@ plugin が何を検証しているかは [インストールガイド](https://k
 | [バナー広告](https://kazutoyo.github.io/expo-google-mobile-ads/ja/banner-ads) | プリロード、hooks、自動リフレッシュ |
 | [バナーサイズの選び方](https://kazutoyo.github.io/expo-google-mobile-ads/ja/banner-sizes) | 固定サイズとアダプティブサイズ |
 | [インタースティシャル / リワード広告](https://kazutoyo.github.io/expo-google-mobile-ads/ja/fullscreen-ads) | 使い切りの全画面広告、報酬 |
+| [Swipeable Interstitial](https://kazutoyo.github.io/expo-google-mobile-ads/ja/swipeable-interstitial-ads) | View への配置、hooks、表示保持時間、イベント |
 | [メディエーション](https://kazutoyo.github.io/expo-google-mobile-ads/ja/mediation) | config plugin 経由でのアダプタ追加 |
 | [API](https://kazutoyo.github.io/expo-google-mobile-ads/ja/api) | パッケージルートからのエクスポート一覧 |
 | [リワードインタースティシャル広告](https://kazutoyo.github.io/expo-google-mobile-ads/ja/rewarded-interstitial-ads) | ロード、表示、hooks |
