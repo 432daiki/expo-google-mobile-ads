@@ -12,8 +12,16 @@ import expo.modules.kotlin.modules.ModuleDefinition
  * view's `ad` prop can only resolve a 1.0 shared object.
  */
 class ExpoGoogleMobileAdsObjectsModule : Module() {
+  // Constructors run on JS; resume runs on the activity thread. Keep only weak keys so the
+  // module never extends an ad's lifetime, and copy under the lock before dispatching work.
+  private val appOpenAds = java.util.WeakHashMap<AppOpenAd, Unit>()
   override fun definition() = ModuleDefinition {
     Name("ExpoGoogleMobileAdsObjects")
+
+    OnActivityEntersForeground {
+      val ads = synchronized(appOpenAds) { appOpenAds.keys.toList() }
+      ads.forEach { it.revalidateExpiration() }
+    }
 
     Class(BannerAd::class) {
       Constructor { adUnitId: String, size: Map<String, Any?>, requestOptions: Map<String, Any?>? ->
@@ -62,6 +70,24 @@ class ExpoGoogleMobileAdsObjectsModule : Module() {
       // @internal, called only by the JS side's deferred-load helper when initialize() fails.
       Function("markLoadFailed") { ad: InterstitialAd, message: String -> ad.markLoadFailed(message) }
       AsyncFunction("showAsync") { ad: InterstitialAd, promise: Promise -> ad.showAsync(promise) }
+
+      Events("statusChange", "showed", "dismissed", "impression", "clicked", "paid")
+    }
+
+    Class(AppOpenAd::class) {
+      Constructor { adUnitId: String, requestOptions: Map<String, Any?>? ->
+        AppOpenAd(appContext, adUnitId, requestOptions).also { ad ->
+          synchronized(appOpenAds) { appOpenAds[ad] = Unit }
+        }
+      }
+
+      Property("status") { ad: AppOpenAd -> ad.appOpenStatus }
+      Property("error") { ad: AppOpenAd -> ad.error }
+      Property("responseInfo") { ad: AppOpenAd -> ad.responseInfo }
+
+      Function("load") { ad: AppOpenAd -> ad.load() }
+      Function("markLoadFailed") { ad: AppOpenAd, message: String -> ad.markLoadFailed(message) }
+      AsyncFunction("showAsync") { ad: AppOpenAd, promise: Promise -> ad.showAsync(promise) }
 
       Events("statusChange", "showed", "dismissed", "impression", "clicked", "paid")
     }

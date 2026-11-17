@@ -64,6 +64,24 @@ public final class ExpoGoogleMobileAdsObjectsModule: Module {
       }
     }
 
+    Class("AppOpenAd", FullScreenAppOpenAd.self) {
+      Constructor { (adUnitId: String, requestOptions: [String: Any?]?) -> FullScreenAppOpenAd in
+        FullScreenAppOpenAd(adUnitId: adUnitId, requestOptions: requestOptions)
+      }
+
+      Property("status") { (ad: FullScreenAppOpenAd) in ad.appOpenStatus }
+      Property("error") { (ad: FullScreenAppOpenAd) in ad.error }
+      Property("responseInfo") { (ad: FullScreenAppOpenAd) in ad.responseInfo }
+
+      Function("load") { (ad: FullScreenAppOpenAd) in ad.load() }
+      Function("markLoadFailed") { (ad: FullScreenAppOpenAd, message: String) in
+        ad.markLoadFailed(message)
+      }
+      AsyncFunction("showAsync") { (ad: FullScreenAppOpenAd, promise: Promise) in
+        ad.showAsync(promise)
+      }
+    }
+
     Class("RewardedAd", FullScreenRewardedAd.self) {
       Constructor { (adUnitId: String, requestOptions: [String: Any?]?) -> FullScreenRewardedAd in
         FullScreenRewardedAd(adUnitId: adUnitId, requestOptions: requestOptions)
