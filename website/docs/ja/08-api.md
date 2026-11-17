@@ -643,3 +643,15 @@ Android の UMP には `misconfiguration` や `formUnavailable` に相当する�
 | `failedToShow` | SDK 自体が表示を拒否しました。`cause` に SDK 自身のエラーが入ります |
 
 `notLoaded` と `alreadyShown` は、SDK に到達する前に広告自身の `status` から判定しています。Android の Next-Gen SDK には準備状態を問い合わせる API がないため、こちら側で判定することが、両プラットフォームの挙動を揃える唯一の方法です。
+
+## リワードインタースティシャル広告
+
+API と使い方は [リワードインタースティシャル広告](/ja/rewarded-interstitial-ads) を参照してください。
+
+## ネイティブ広告
+
+API と使い方は [ネイティブ広告](/ja/native-ads) を参照してください。
+
+## アプリ起動時広告
+
+API と使い方は [アプリ起動時広告](/ja/app-open-ads) を参照してください。

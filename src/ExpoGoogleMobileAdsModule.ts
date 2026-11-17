@@ -31,6 +31,9 @@ declare class ExpoGoogleMobileAdsObjects {
   BannerAd: any;
   InterstitialAd: any;
   RewardedAd: any;
+  RewardedInterstitialAd: any;
+  NativeAd: any;
+  AppOpenAd: any;
 }
 
 export default requireNativeModule<ExpoGoogleMobileAdsModule>('ExpoGoogleMobileAds');

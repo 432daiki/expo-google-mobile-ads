@@ -16,7 +16,7 @@ npx expo install @kazutoyo/expo-google-mobile-ads
 - **UMP 同意管理** — 同意の取得、フォームの表示、プライバシーオプションの再表示
 - **config plugin** — App ID をネイティブプロジェクトに埋め込み、メディエーションアダプタの依存も追加します
 
-ネイティブ広告、アプリ起動時広告（App Open）、リワード広告のサーバーサイド検証には対応していません。
+リワード広告のサーバーサイド検証には対応していません。
 
 ## 動作要件
 
@@ -34,3 +34,9 @@ iOS 16.4 という下限は、広告 SDK ではなく Expo の都合によるも
 2. [同意管理 (UMP)](/ja/consent) — 同意を取得します
 3. [SDK の初期化](/ja/initialization) — `initialize()` を呼びます
 4. [バナー広告](/ja/banner-ads)、[インタースティシャル / リワード広告](/ja/fullscreen-ads) — 広告をロードして表示します
+
+- [リワードインタースティシャル広告](/ja/rewarded-interstitial-ads)
+
+- [ネイティブ広告](/ja/native-ads)
+
+- [アプリ起動時広告](/ja/app-open-ads)

@@ -1,3 +1,6 @@
+import RewardedInterstitialExample from './RewardedInterstitialExample';
+import NativeExample from './NativeExample';
+import AppOpenExample from './AppOpenExample';
 import { useEffect, useState } from 'react';
 import {
   Button,
@@ -766,6 +769,9 @@ export default function App() {
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.content}>
         <ConsentSection onCanRequestAds={beginInitializationOnce} />
+        <RewardedInterstitialExample />
+        <NativeExample />
+        <AppOpenExample />
         <Button title="Show the banner size gallery" onPress={() => setShowGallery(true)} />
         <Button
           title="Show the full-screen ad QA screen"

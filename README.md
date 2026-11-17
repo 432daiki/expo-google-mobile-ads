@@ -6,7 +6,7 @@
 
 *(English | [日本語](./README.ja.md))*
 
-An Expo Modules native wrapper for the [Google Mobile Ads (AdMob)](https://developers.google.com/admob) SDK. Currently supports banner, interstitial, and rewarded ads, plus UMP consent management.
+An Expo Modules native wrapper for the [Google Mobile Ads (AdMob)](https://developers.google.com/admob) SDK. Currently supports banner, interstitial, rewarded, rewarded interstitial, native, and app open ads, plus UMP consent management.
 
 📖 **[Documentation](https://kazutoyo.github.io/expo-google-mobile-ads/)** — installation, consent, every ad format, and the full API reference.
 
@@ -27,9 +27,9 @@ Android uses the [GMA Next-Gen SDK](https://developers.google.com/admob/android/
 
 - **New Architecture only.** Old Architecture is not supported.
 - **Expo SDK 58+** (58.0.21 or later), **iOS 16.4+**, **Android minSdk 24+**.
-- Banner, interstitial, rewarded ads, and UMP consent.
+- Banner, interstitial, rewarded, rewarded interstitial, native, and app open ads, and UMP consent.
 
-Native ads, app-open ads, and server-side verification for rewarded ads are not supported yet.
+Server-side verification for rewarded ads is not supported yet.
 
 ## Installation
 
@@ -89,6 +89,9 @@ See the [installation guide](https://kazutoyo.github.io/expo-google-mobile-ads/i
 | [Interstitial and rewarded ads](https://kazutoyo.github.io/expo-google-mobile-ads/fullscreen-ads) | Single-use full-screen ads, rewards |
 | [Mediation](https://kazutoyo.github.io/expo-google-mobile-ads/mediation) | Adding adapters through the config plugin |
 | [API](https://kazutoyo.github.io/expo-google-mobile-ads/api) | Everything exported from the package root |
+| [Rewarded interstitial ads](https://kazutoyo.github.io/expo-google-mobile-ads/rewarded-interstitial-ads) | Loading, presentation, hooks |
+| [Native ads](https://kazutoyo.github.io/expo-google-mobile-ads/native-ads) | Loading, presentation, hooks |
+| [App open ads](https://kazutoyo.github.io/expo-google-mobile-ads/app-open-ads) | Loading, presentation, hooks |
 
 ## Contributing
 
