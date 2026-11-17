@@ -31,13 +31,14 @@ Lifecycle observations used temporary debugger instrumentation, which is not shi
 
 ## Automated checks
 
-- 19 Jest suites, 208 tests passed (`npm test -- --runInBand --watchman=false`). Watchman was disabled because the machine's Watchman binary references a missing Homebrew library.
+- After integrating the latest main (including App Open ads): 21 Jest suites, 230 tests passed (`npm test -- --runInBand --watchman=false`). Watchman was disabled because the machine's Watchman binary references a missing Homebrew library.
 - Package/plugin typechecks, example typecheck and package build passed.
 - ESLint: zero errors; 20 existing warnings.
 - Documentation check and static build passed.
 - Package dry-run confirmed the new JavaScript/native files are included and tests are excluded.
 - iOS simulator application build passed for arm64 and x86_64.
-- Android `:app:assembleDebug` passed against ads-mobile-sdk 1.6.0.
+- Android `:app:assembleDebug` passed against ads-mobile-sdk 1.6.0. After the main merge, the module compile and native Kotlin unit tests passed again.
+- After the main merge, all 3 native Swift expiry regression tests passed.
 
 ## Remaining coverage
 

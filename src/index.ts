@@ -76,3 +76,7 @@ export {
   useSwipeableInterstitialAdState,
 } from './hooks/useSwipeableInterstitialAd';
 export type { SwipeableInterstitialAdState } from './hooks/useSwipeableInterstitialAd';
+
+export { createAppOpenAd } from './AppOpenAd';
+export type { AppOpenAd } from './AppOpenAd';
+export { useAppOpenAd, useAppOpenAdState } from './hooks/useAppOpenAd';
