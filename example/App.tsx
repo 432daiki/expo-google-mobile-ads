@@ -1,3 +1,4 @@
+import NativeExample from './NativeExample';
 import AppOpenExample from './AppOpenExample';
 import { useEffect, useState } from 'react';
 import {
@@ -771,6 +772,7 @@ export default function App() {
       <ScrollView contentContainerStyle={styles.content}>
         <ConsentSection onCanRequestAds={beginInitializationOnce} />
         <SwipeableInterstitialExample />
+        <NativeExample />
         <AppOpenExample />
         <Button title="Show the banner size gallery" onPress={() => setShowGallery(true)} />
         <Button

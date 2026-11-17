@@ -31,7 +31,7 @@ Lifecycle observations used temporary debugger instrumentation, which is not shi
 
 ## Automated checks
 
-- After integrating the latest main (including App Open ads): 21 Jest suites, 230 tests passed (`npm test -- --runInBand --watchman=false`). Watchman was disabled because the machine's Watchman binary references a missing Homebrew library.
+- After integrating the latest main (including App Open and Native ads): 24 Jest suites, 249 tests passed (`npm test -- --runInBand --watchman=false`). Watchman was disabled because the machine's Watchman binary references a missing Homebrew library.
 - Package/plugin typechecks, example typecheck and package build passed.
 - ESLint: zero errors; 20 existing warnings.
 - Documentation check and static build passed.

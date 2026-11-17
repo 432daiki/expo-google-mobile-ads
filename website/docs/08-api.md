@@ -652,6 +652,10 @@ See the [guide](/swipeable-interstitial-ads) for options, state, ownership and e
 - `SwipeableInterstitialAdView({ ad, style }: SwipeableInterstitialAdViewProps)`
 - Types: `SwipeableInterstitialAdOptions`, `SwipeableInterstitialAdEvents`, `SwipeableInterstitialAdState`, `SwipeableInterstitialAdViewProps`, `SwipeableInterstitialAd`.
 
+## Native ads
+
+See [native ads](/native-ads) for the API and usage.
+
 ## AppOpen ads
 
 See [app open ads](/app-open-ads) for the API and usage.

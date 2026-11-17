@@ -354,6 +354,15 @@ For each item, record which platform it was run on, the actual result, and (if r
 matching `adb logcat` / Xcode console line that evidences it. Paste the line into this file —
 don't reference a scratch file outside the repository, which nobody cloning it can read.
 
+## Native ads
+
+- [ ] Load with the platform test ID and confirm success and error state.
+- [ ] Release during loading; no late result or crash.
+- [ ] Retry a failed request and replace a loaded ad.
+- [ ] Mount before loading; confirm attribution, AdChoices, media/video, optional assets and click-through.
+- [ ] Move the ad between cards and unmount; only one card shows it, with no duplicate impression.
+- [ ] Release while mounted; the card clears.
+
 ## App open ads
 
 - [ ] Load with the platform test ID and confirm success and error state.
