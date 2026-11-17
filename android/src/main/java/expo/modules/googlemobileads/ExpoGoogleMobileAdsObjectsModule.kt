@@ -111,6 +111,22 @@ class ExpoGoogleMobileAdsObjectsModule : Module() {
       Events("statusChange", "showed", "dismissed", "impression", "clicked", "paid", "earnedReward")
     }
 
+    Class(NativeAd::class) {
+      Constructor { adUnitId: String, requestOptions: Map<String, Any?>? -> NativeAd(appContext, adUnitId, requestOptions) }
+      Property("status") { ad: NativeAd -> ad.status }
+      Property("error") { ad: NativeAd -> ad.error }
+      Property("responseInfo") { ad: NativeAd -> ad.responseInfo }
+      Property("assets") { ad: NativeAd -> ad.assets }
+      Function("load") { ad: NativeAd -> ad.load() }
+      Function("markLoadFailed") { ad: NativeAd, message: String -> ad.markLoadFailed(message) }
+      Events("statusChange", "impression", "clicked", "paid")
+    }
+    View(NativeAdCardView::class) {
+      Name("NativeAdView")
+      Prop("ad") { view: NativeAdCardView, ad: NativeAd? -> view.setAd(ad) }
+      OnViewDestroys { view: NativeAdCardView -> view.onDestroy() }
+    }
+
     View(BannerAdView::class) {
       Prop("ad") { view: BannerAdView, ad: BannerAd? ->
         view.setAd(ad)

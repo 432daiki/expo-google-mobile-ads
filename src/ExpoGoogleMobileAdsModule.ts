@@ -31,6 +31,7 @@ declare class ExpoGoogleMobileAdsObjects {
   BannerAd: any;
   InterstitialAd: any;
   RewardedAd: any;
+  NativeAd: any;
   AppOpenAd: any;
 }
 

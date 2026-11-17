@@ -642,6 +642,10 @@ Literal type: `'notLoaded' \| 'alreadyShown' \| 'failedToShow'`
 
 `notLoaded` and `alreadyShown` are decided from the ad's own `status` before anything reaches the SDK. Android's Next-Gen SDK has no readiness check at all, so deciding it here is what makes both platforms behave identically.
 
+## Native ads
+
+See [native ads](/native-ads) for the API and usage.
+
 ## AppOpen ads
 
 See [app open ads](/app-open-ads) for the API and usage.

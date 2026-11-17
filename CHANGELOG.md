@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Add native ads on iOS and Android, with preloading, React hooks, examples and documentation.
+
 - Count device sleep in app-open expiry and notify hooks when an expired ad resumes.
 
 - Add app open ads on iOS and Android, with preloading, React hooks, examples and documentation.
