@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Add an iOS Swift Package Manager manifest for Expo SDK 58 autolinking, including
+  Google Mobile Ads and UMP dependencies, an example build workaround, and CI for
+  both CocoaPods and SwiftPM.
+
 - Use earnedReward as the sample grant path, document late mediation callbacks, and label no-reward dismissal explicitly.
 
 - Add rewarded interstitial ads on iOS and Android, with preloading, React hooks, examples and documentation.
